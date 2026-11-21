@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FarmLink - Green Vegetation Background</title>
+<style>
+  /* === BACKGROUND - GREEN VEGETATION WITH BANANA + POTATOES === */
+  body{
+    font-family:Arial; margin:0; padding:8px; padding-bottom:80px;
+    /* Layer 1: Green vegetation, Banana leaves + Potatoes field */
+    background-image:
+      linear-gradient(rgba(20,70,20,0.55), rgba(20,70,20,0.55)),
+      url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&auto=format&fit=crop&q=80'), /* Green vegetation field */
+      url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=1600&auto=format&fit=crop&q=80'); /* Bananas */
+    background-size:cover, cover, cover;
+    background-position:center, center, center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+  }
+  .card{background:white; padding:14px; margin:12px 0; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.3); overflow:hidden}
+
+  /* HERO - GREEN VEGETATION + BANANA + POTATOES */
+  .hero{
+    border-radius:16px; padding:0; margin-bottom:10px; color:white; overflow:hidden; border:2px solid #fff;
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,60,0,0.85)),
+      url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=1200&auto=format&fit=crop&q=80'), /* BANANA */
+      url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=1200&auto=format&fit=crop&q=80'); /* POTATOES */
+    background-size:cover, cover, cover;
+    background-position:center, center, center;
+  }
+  .hero-inner{ padding:18px }
+  .hero h1{ margin:0; font-size:36px; text-shadow:0 2px 6px #000 }
+  .hero p{ margin:6px 0; font-size:15px; color:#e8f5e9; text-shadow:0 1px 3px #000 }
+  .hero-human{ display:flex; gap:10px; align-items:center; background:white; border-radius:12px; padding:10px; color:#111; margin-top:12px }
+  .hero-human img{ width:65px !important; height:65px !important; border-radius:50% !important; object-fit:cover; border:2px solid #2e7d32 }
+  .hero-human b{ color:#1b5e20; font-size:16px } .hero-human small{ color:#555; font-size:13px }
+  .hero-badges{ display:flex; gap:6px; margin-top:10px }
+  .hero-badges span{ background:rgba(255,255,255,0.95); color:#1b5e20; padding:6px 10px; border-radius:20px; font-size:12px; font-weight:bold }
+
+  /* BANANA + POTATOES STRIP - GREEN VEGETATION */
+  .veg-strip{ display:flex; gap:8px; margin:10px 0 }
+  .veg-box{ flex:1; border-radius:14px; overflow:hidden; height:130px; position:relative; border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,0.3) }
+  .veg-box img{ width:100% !important; height:100% !important; object-fit:cover }
+  .veg-box span{ position:absolute; bottom:0; left:0; right:0; background:rgba(27,94,32,0.9); color:white; padding:6px; font-size:13px; font-weight:bold; text-align:center }
+
+  /* PRODUCTS - BIG */
+  .products-grid{ display:flex; flex-direction:column; gap:12px; margin:12px 0 }
+  .mini-product{ display:flex; gap:14px; background:white; border-radius:16px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.3); align-items:center }
+  .mini-product img{ width:170px !important; height:170px !important; object-fit:cover; border-radius:14px }
+  .mini-product b{ font-size:21px }
+  .mini-product small{ font-size:15px; color:#666 }
+  .mini-product .price{ font-size:20px; color:#2e7d32; font-weight:bold }
+  .mini-product button{ padding:12px; font-size:16px; margin-top:8px }
+  .mini-product .farmer-ava{ width:30px !important; height:30px !important; border-radius:50% !important; display:inline-block; vertical-align:middle }
+
+  .product-card{ background:white; border-radius:18px; overflow:hidden; margin:14px 0; box-shadow:0 3px 10px rgba(0,0,0,0.3) }
+  .product-card img.big{ width:100% !important; height:400px !important; object-fit:cover; display:block }
+  .product-body{ padding:16px }
+  .product-body b.big-name{ font-size:24px }
+  .farmer-line{ display:flex; gap:10px; align-items:center; background:#e8f5e9; padding:10px; border-radius:10px; margin:8px 0 }
+  .farmer-line img{ width:55px !important; height:55px !important; border-radius:50% !important; object-fit:cover; border:2px solid #2e7d32 }
+  .farmer-line b{ font-size:16px } .farmer-line small{ font-size:13px; color:#555 }
+
+  .human-row{ display:flex; gap:10px; overflow-x:auto; padding-bottom:5px }
+  .human-card{ min-width:160px; border-radius:14px; overflow:hidden; background:white; box-shadow:0 1px 5px #ccc; text-align:center; padding-bottom:10px }
+  .human-card img{ width:100% !important; height:150px !important; object-fit:cover }
+  .human-card b{ font-size:16px } .human-card small{ font-size:13px; color:#666 }
+
+  input,select,button{width:100%; padding:14px; margin:6px 0; border-radius:10px; border:1px solid #ddd; font-size:16px}
+  button{background:#2e7d32; color:white; border:none; font-weight:bold}
+  button.orange{background:#ff9800} button.blue{background:#1976d2} button.red{background:#d32f2f} button.grey{background:#757575}
+  .price{color:#2e7d32; font-weight:bold; font-size:22px} .badge{background:#fff3cd; padding:4px 10px; border-radius:20px; font-size:14px}
+  .qty-box{display:flex; gap:6px; margin-top:10px} .qty-box button{width:55px; font-size:18px} .qty-box input{text-align:center; font-size:18px}
+  .hidden{display:none} .tab-btn{width:48%; display:inline-block} .active-tab{background:#1b5e20 !important}
+  .cart-bar{position:fixed; bottom:0; left:0; right:0; background:#1b5e20; color:white; padding:14px; text-align:center; font-weight:bold; z-index:99; font-size:17px}
+  #previewImg{ width:100% !important; height:400px !important; object-fit:cover; border-radius:14px; display:none }
+  .section-title{ background:rgba(255,255,255,0.95); padding:10px 14px; border-radius:12px; display:inline-block; margin:10px 0 5px 0; box-shadow:0 2px 6px rgba(0,0,0,0.2) }
+</style>
+</head>
+<body>
+
+<!-- HERO - GREEN VEGETATION + BANANA + POTATOES BACKGROUND -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>🌾 FarmLink</h1>
+    <p>Fresh From Murang'a & Kisii.</p>
+    <div class="hero-badges"><span>🍌 Banana</span><span>🥔 Potatoes</span><span>🌿 Green Vegetation</span></div>
+    <div class="hero-human">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=200&auto=format&fit=crop&q=80">
+      <div><b>👨‍🌾 Peter</b><br><small>Kangema</small></div>
+    </div>
+    <div style="display:flex; gap:8px; margin-top:12px">
+      <button onclick="document.getElementById('productsSection').scrollIntoView()" style="background:white; color:#2e7d32">🛒 Shop Now</button>
+      <button class="orange" onclick="document.getElementById('loginPage').scrollIntoView()">Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- GREEN VEGETATION STRIP - BANANA + POTATOES -->
+<div class="veg-strip">
+  <div class="veg-box"><img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&auto=format&fit=crop&q=80"><span>🍌 Banana - Kisii</span></div>
+  <div class="veg-box"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80"><span>🌿 Green Vegetation</span></div>
+  <div class="veg-box"><img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800&auto=format&fit=crop&q=80"><span>🥔 Potatoes - Murang'a</span></div>
+</div>
+
+<!-- PRODUCTS - BIG -->
+<h3 class="section-title">🛒 Fresh Products - Big Size</h3>
+<div class="products-grid" id="splitProducts"></div>
+
+<h3 class="section-title">👨‍🌾 Meet Our Farmers</h3>
+<div class="human-row">
+  <div class="human-card"><img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=500&auto=format&fit=crop&q=80"><b>Peter - Kangema</b><br><small>Tomatoes, Potatoes</small></div>
+  <div class="human-card"><img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=500&auto=format&fit=crop&q=80"><b>Mama Njeri - Kiharu</b><br><small>Bananas, Cabbage</small></div>
+  <div class="human-card"><img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=500&auto=format&fit=crop&q=80"><b>Kamau - Kandara</b><br><small>Avocado, Carrots</small></div>
+  <div class="human-card"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=500&auto=format&fit=crop&q=80"><b>Grace - Mathioya</b><br><small>Maize, Eggs</small></div>
+  <div class="human-card"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&auto=format&fit=crop&q=80"><b>Maina - Kisii</b><br><small>Banana Plantation</small></div>
+</div>
+
+<div class="card" style="background:#e8f5e9; border-left:5px solid #2e7d32">
+  <b>🍌 Kisii County - Banana Plantation</b><br><small>Kisii is Kenya's leading banana producer - 350,000 tonnes per year. Bananas straight from Kisii farmers!</small><br><br>
+  <b>🥔 Murang'a - Potatoes</b><br><small>Fresh potatoes from Kangema, Kiharu - grown in rich green vegetation soil.</small>
+</div>
+
+<div id="loginPage" class="card">
+  <h2 style="text-align:center">Welcome - Login</h2>
+  <button class="tab-btn active-tab" id="tab-farmer" onclick="switchRole('farmer')">👨‍🌾 FARMER</button>
+  <button class="tab-btn grey" id="tab-buyer" onclick="switchRole('buyer')">🛒 BUYER</button>
+  <button class="tab-btn grey" id="tab-rider" onclick="switchRole('rider')">🏍️ RIDER</button>
+  <button class="tab-btn grey" id="tab-admin" onclick="switchRole('admin')">👑 ADMIN</button>
+  <input id="loginName" placeholder="Your Name"><input id="loginPhone" placeholder="Phone">
+  <select id="loginLocation"><option>Murang'a Town</option><option>Kangema</option><option>Kiharu</option><option>Maragua</option><option>Kandara</option><option>Kisii Town</option><option>Nyamache - Kisii</option><option>Bobasi - Kisii</option></select>
+  <button onclick="login()">Login →</button>
+</div>
+
+<div id="mainApp" class="hidden">
+  <div id="farmerDash" class="hidden">
+    <div class="card"><b>📊 Farmer</b> - Products: <b id="myCount">0</b> | Sales: <b id="mySales">Ksh 0</b><br><button onclick="toggleForm()">+ Add Product</button></div>
+    <div class="card hidden" id="addForm">
+      <input id="newName" placeholder="Product Name"><select id="newCategory"><option>Vegetables</option><option>Fruits</option><option>Grains</option><option>Dairy</option><option>Poultry</option></select>
+      <input id="newPrice" type="number" placeholder="Price Ksh"><input id="newQty" type="number" placeholder="Quantity"><select id="newUnit"><option>kg</option><option>bunch</option><option>piece</option><option>crate</option><option>tray</option></select>
+      <label><b>📸 Photo:</b></label><input type="file" accept="image/*" capture="environment" onchange="previewPhoto(event)"><img id="previewImg">
+      <select id="newImage" onchange="useSamplePhoto()">
+        <option value="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&auto=format&fit=crop&q=80">🍌 Kisii Bananas</option>
+        <option value="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800&auto=format&fit=crop&q=80">🍅 Tomatoes</option>
+        <option value="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800&auto=format&fit=crop&q=80">🥔 Potatoes</option>
+        <option value="https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=800&auto=format&fit=crop&q=80">🥚 Eggs - Poultry Farm</option>
+        <option value="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&auto=format&fit=crop&q=80">🐔 Chicken - Joivin Poultry</option>
+      </select>
+      <button onclick="addProduct()">✅ Publish</button><button class="grey" onclick="toggleForm()">Cancel</button>
+    </div>
+    <div id="myProducts"></div>
+  </div>
+  <div id="buyerDash" class="hidden">
+    <h3 id="productsSection">🌽 Fresh Today - Joivin Poultry + Kisii Bananas</h3>
+    <input id="search" placeholder="🔍 Search..." oninput="renderProducts()">
+    <select id="filter" onchange="renderProducts()"><option value="">All</option><option>Vegetables</option><option>Fruits</option><option>Grains</option><option>Dairy</option><option>Poultry</option></select>
+    <div id="products"></div>
+    <div class="card"><h3>🛒 Checkout</h3><input id="address" placeholder="Delivery Address"><p id="msg"></p><button onclick="placeOrder()">Pay with M-Pesa</button></div>
+    <div id="myOrdersList"></div>
+  </div>
+  <div id="riderDash" class="hidden"><h3>🏍️ Rider Jobs</h3><div id="riderJobs"></div></div>
+  <div id="adminDash" class="hidden"><h3>👑 Admin</h3><div id="adminUsers"></div><div id="adminProducts"></div></div>
+</div>
+<div class="cart-bar hidden" id="cartBar">🛒 Cart: 0</div>
+
+<script>
+let currentRole='farmer', currentUser=null, uploadedImage='';
+let farmerFaces={
+  'Peter':'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=200&auto=format&fit=crop&q=70',
+  'Mama Njeri':'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=200&auto=format&fit=crop&q=70',
+  'Kamau':'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=200&auto=format&fit=crop&q=70',
+  'Grace':'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=200&auto=format&fit=crop&q=70',
+  'Maina':'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=200&auto=format&fit=crop&q=70',
+  'Joivin':'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=200&auto=format&fit=crop&q=70',
+};
+let products=[
+  {id:1, name:'Kisii Bananas - Matoke', category:'Fruits', price:50, quantity:100, unit:'bunch', location:'Nyamache - Kisii', farmer:'Maina', img:'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=1000&auto=format&fit=crop&q=85', desc:'Kisii bananas - from Kisii plantation'},
+  {id:2, name:'Fresh Eggs - Joivin Poultry', category:'Poultry', price:15, quantity:300, unit:'piece', location:'Murang\'a', farmer:'Joivin', img:'https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=1000&auto=format&fit=crop&q=85', desc:'Fresh eggs from Joivin Poultry Farm'},
+  {id:3, name:'Kienyeji Chicken - Joivin', category:'Poultry', price:800, quantity:20, unit:'piece', location:'Murang\'a', farmer:'Joivin', img:'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=1000&auto=format&fit=crop&q=85', desc:'Kienyeji chicken - Joivin Poultry Farm'},
+  {id:4, name:'Fresh Tomatoes', category:'Vegetables', price:80, quantity:50, unit:'kg', location:'Kangema', farmer:'Peter', img:'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=1000&auto=format&fit=crop&q=85', desc:'Red ripe tomatoes'},
+  {id:5, name:'Sweet Bananas', category:'Fruits', price:50, quantity:30, unit:'bunch', location:'Maragua', farmer:'Mama Njeri', img:'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=1000&auto=format&fit=crop&q=85', desc:'Sweet bananas'},
+  {id:6, name:'Potatoes', category:'Vegetables', price:60, quantity:100, unit:'kg', location:'Kangema', farmer:'Peter', img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=1000&auto=format&fit=crop&q=85', desc:'Big potatoes - from green vegetation farm'},
+  {id:7, name:'Cabbage', category:'Vegetables', price:40, quantity:80, unit:'piece', location:'Kiharu', farmer:'Mama Njeri', img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1000&auto=format&fit=crop&q=85', desc:'Fresh cabbage'},
+  {id:8, name:'Carrots', category:'Vegetables', price:70, quantity:60, unit:'kg', location:'Kandara', farmer:'Kamau', img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=1000&auto=format&fit=crop&q=85', desc:'Orange carrots'},
+  {id:9, name:'Hass Avocado', category:'Fruits', price:30, quantity:200, unit:'piece', location:'Kandara', farmer:'Kamau', img:'https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?w=1000&auto=format&fit=crop&q=85', desc:'Creamy avocado'},
+  {id:10, name:'Maize', category:'Grains', price:55, quantity:500, unit:'kg', location:'Mathioya', farmer:'Grace', img:'https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=1000&auto=format&fit=crop&q=85', desc:'Dry maize'},
+];
+let cart=[], allOrders=[], totalSales=0;
+function getFace(n){ return farmerFaces[n]||farmerFaces['Peter']; }
+function renderSplit(){ document.getElementById('splitProducts').innerHTML = products.slice(0,6).map(p=>`<div class="mini-product"><img src="${p.img}"><div style="flex:1"><b>${p.name}</b><br><img class="farmer-ava" src="${getFace(p.farmer)}"> <small>${p.farmer} • ${p.location}</small><br><span class="price">Ksh ${p.price} / ${p.unit}</span><br><button onclick="addToCartSplit(${p.id})">Add 🛒</button></div></div>`).join(''); }
+function addToCartSplit(id){ let p=products.find(x=>x.id===id); cart.push({qty:1, price:p.price, name:p.name}); let t=cart.reduce((s,i)=>s+i.price*i.qty,0); document.getElementById('cartBar').innerHTML=`🛒 Cart: ${cart.length} | Ksh ${t}`; document.getElementById('cartBar').classList.remove('hidden'); alert(p.name+' added!'); }
+renderSplit();
+function switchRole(r){ currentRole=r; ['farmer','buyer','rider','admin'].forEach(x=>{ document.getElementById('tab-'+x).className='tab-btn '+(x===r?'active-tab':'grey'); }); }
+function login(){ let name=document.getElementById('loginName').value.trim(); let phone=document.getElementById('loginPhone').value.trim(); if(!name||!phone){alert('Enter Name and Phone'); return;} currentUser={name, phone, role:currentRole}; document.getElementById('loginPage').classList.add('hidden'); document.getElementById('mainApp').classList.remove('hidden'); ['farmerDash','buyerDash','riderDash','adminDash'].forEach(id=>document.getElementById(id).classList.add('hidden')); document.getElementById(currentRole+'Dash').classList.remove('hidden'); document.getElementById('cartBar').classList.toggle('hidden', currentRole!=='buyer'); if(currentRole==='farmer') renderMyProducts(); if(currentRole==='buyer') renderProducts(); if(currentRole==='rider') renderRider(); if(currentRole==='admin') renderAdmin(); }
+function logout(){ document.getElementById('mainApp').classList.add('hidden'); document.getElementById('loginPage').classList.remove('hidden'); }
+function toggleForm(){ document.getElementById('addForm').classList.toggle('hidden'); }
+function previewPhoto(e){ let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=function(ev){ uploadedImage=ev.target.result; let img=document.getElementById('previewImg'); img.src=uploadedImage; img.style.display='block'; }; r.readAsDataURL(f); }
+function useSamplePhoto(){ uploadedImage=''; document.getElementById('previewImg').src=document.getElementById('newImage').value; document.getElementById('previewImg').style.display='block'; }
+function addProduct(){ let name=document.getElementById('newName').value; let price=document.getElementById('newPrice').value; let qty=document.getElementById('newQty').value; if(!name||!price||!qty){alert('Fill all'); return;} products.unshift({id:Date.now(), name, category:document.getElementById('newCategory').value, price:parseInt(price), quantity:parseInt(qty), unit:document.getElementById('newUnit').value, location:currentUser.name, farmer:currentUser.name, img:uploadedImage||document.getElementById('newImage').value, desc:'Fresh from '+currentUser.name}); renderMyProducts(); renderSplit(); toggleForm(); alert('✅ LIVE!'); }
+function renderMyProducts(){ let mine=products.filter(p=>p.farmer===currentUser.name); document.getElementById('myCount').innerText=mine.length; document.getElementById('myProducts').innerHTML=mine.map(p=>`<div class="product-card"><img class="big" src="${p.img}"><div class="product-body"><b class="big-name">${p.name}</b> - <span class="price">Ksh ${p.price}</span></div></div>`).join(''); }
+function renderProducts(){ let s=document.getElementById('search').value.toLowerCase(); let c=document.getElementById('filter').value; let f=products.filter(p=>(p.name.toLowerCase().includes(s)||p.farmer.toLowerCase().includes(s))&&(c===''||p.category===c)); document.getElementById('products').innerHTML=f.map(p=>`<div class="product-card"><img class="big" src="${p.img}"><div class="product-body"><div class="farmer-line"><img src="${getFace(p.farmer)}"><div><b>👨‍🌾 ${p.farmer}</b><br><small>📍 ${p.location}</small></div></div><b class="big-name">${p.name}</b> <span class="badge">${p.category}</span><br><small style="color:#555; font-size:15px">${p.desc}</small><br><span class="price">Ksh ${p.price} / ${p.unit}</span> | Stock: ${p.quantity}<div class="qty-box"><button onclick="changeQty(${p.id},-1)">-</button><input id="qty-${p.id}" value="1" readonly><button onclick="changeQty(${p.id},1)">+</button><button onclick="addToCart(${p.id})">Add 🛒</button></div></div></div>`).join(''); }
+function changeQty(id,d){ let el=document.getElementById('qty-'+id); let v=parseInt(el.value)+d; if(v<1)v=1; el.value=v; }
+function addToCart(id){ let p=products.find(x=>x.id===id); let q=parseInt(document.getElementById('qty-'+id).value); cart.push({qty:q, price:p.price, name:p.name}); let t=cart.reduce((s,i)=>s+i.price*i.qty,0); document.getElementById('cartBar').innerHTML=`🛒 Cart: ${cart.length} | Ksh ${t}`; alert(p.name+' added!'); }
+function placeOrder(){ if(cart.length===0) return alert('Cart empty'); let total=cart.reduce((s,i)=>s+i.price*i.qty,0); let order={id:'ORD-'+Date.now().toString().slice(-5), items:cart.map(i=>i.name).join(', '), total}; allOrders.push(order); totalSales+=total; document.getElementById('msg').innerHTML=`✅ Paid! ${order.id}`; document.getElementById('myOrdersList').innerHTML=allOrders.map(o=>`<div class="card">📦 ${o.id} - ${o.items} - Ksh ${o.total}</div>`).join(''); cart=[]; alert('Payment Successful!'); }
+function renderRider(){ document.getElementById('riderJobs').innerHTML=allOrders.length===0?'<p>No jobs.</p>':allOrders.map(o=>`<div class="card">📦 ${o.id} - ${o.items} <button onclick="alert('Accepted')">Accept</button></div>`).join(''); }
+function renderAdmin(){ document.getElementById('adminUsers').innerHTML=''; document.getElementById('adminProducts').innerHTML=products.map(p=>`<div class="product-card"><img class="big" style="height:250px !important" src="${p.img}"><div class="product-body"><b class="big-name">${p.name}</b> by ${p.farmer}</div></div>`).join(''); }
+</script>
+</body>
+</html>
